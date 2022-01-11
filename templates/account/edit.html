@@ -1,0 +1,57 @@
+{% include 'header.html' %}
+    <div class="container">
+        <div class="row mt-4">
+            {%include '/account/menu.html'%}
+            <div class="col-md-8 mt-2">
+                <h3 class="mt-1 text-center">Edit Profile</h3>
+               <form action="{{ url_for('account_edit') }}" method="post">
+                   {{form.csrf_token}}
+                   {% for field ,error in form.errors.items() %}
+            
+                   <div class="alert alert-warning alert-dismissible">
+                       {{','.join(error)}}
+                       <button type="button" class="close" data-dismiss="alert">&times;</button>
+                   </div>
+                   {% endfor %}
+                   <div class="col-md-10">
+                       <div class="input-group mt-3">
+                        <span class="input-group-text bg-light mr-2">First Name</span>
+                        {{form.firstname(class="form-control", value=current_user.firstname) }}
+                    </div>
+                   </div>
+                    
+                   <div class="col-md-10">
+                        <div class="input-group mt-3">
+                        <span class="input-group-text bg-light mr-2">Last Name</span>
+                        {{form.lastname(class="form-control", value=current_user.lastname) }}
+                        </div>
+                    </div>
+
+                <div class="col-md-10">
+                    <div class="input-group mt-3">
+                     <span class="input-group-text bg-light mr-2">Email</span>
+                     {{form.email(class="form-control", value=current_user.email) }}
+                 </div>
+                </div>
+
+                <div class="col-md-10">
+                    <div class="input-group mt-3">
+                     <span class="input-group-text bg-light mr-2">Phone</span>
+                     {{form.phone(class="form-control", value=current_user.phone) }}
+                 </div>
+                </div>
+                    <div class="col-md-10 mt-3">
+                        <div class="input-group mt-3">
+                            <span class="input-group-text bg-light mr-2">Bio</span>
+                            {{form.bio(class="form-control", placeholder=current_user.bio , rows="2") }}
+                        </div>
+                    </div>
+                    <div class="input-group mt-3">
+                        {{form.submit(class='btn btn-primary mt-5 W-100')}}
+                    </div>
+               </form>
+            </div>
+        </div>
+    </div>
+{% include 'footer.html' %}
+

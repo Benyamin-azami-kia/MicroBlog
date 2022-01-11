@@ -1,0 +1,10 @@
+.link{
+    text-decoration: none!important;
+    color: black !important;
+}
+.avatar{
+    width: 95%;
+    height: 95%;
+    margin: 1% 1% 1% 1%;
+    border-radius: 3%;
+}

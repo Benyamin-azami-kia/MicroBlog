@@ -1,0 +1,49 @@
+ {% include '/header.html' %}
+ <div class="container">
+        <div class="row mt-4">
+            <div class='col-md-12 justify-content-center'>
+                <div class='col-md-12'>
+                     <table class='table'>
+                        <thead class='table text-center bg-light'>
+                            <tr>
+                                <td>#</td>
+                                <td>Subject</td>
+                                <td>Writer</td>
+                                <td>Creation Date</td>
+                                <td>Public</td>
+                                <td>Options</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                    {% for article in articles %}
+                        <tr>
+                            <td>{{ loop.index }}</td>
+                            <td>{{ article.subject }}</td>
+                            <td>{{ article.getWriter() }}</td>
+                            <td>{{ article.created_at }}</td>
+                            <td>
+                                {% if article.publish %}
+                                    <span class='text-success'>Published</span>
+                                {% else %}
+                                    <span class='text-info'>Saved</span>
+                                {% endif %}
+                            </td>
+                            <td>
+                                <div class="btn-group" role="group">
+                                    <a href="{{url_for('editPost')}}?id={{article.id}}" class="btn btn-info btn-sm">Edit</a>
+                                    {% if current_user.admin %}
+                                    <form action="{{url_for('postList')}}?id={{article.id}}" method="post">
+                                        <button type="submit" class="btn btn-danger btn-sm">Del</button>
+                                    </form>
+                                    {% endif %}
+                                </div>
+                            </td>
+                        </tr>
+                  {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% include '/footer.html' %}

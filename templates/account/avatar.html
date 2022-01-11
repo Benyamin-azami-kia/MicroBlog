@@ -1,0 +1,29 @@
+{% include 'header.html' %}
+    <div class="container">
+        <div class="row mt-4">
+            {%include '/account/menu.html'%}
+            <div class="col-md-8 mt-2">
+                <h3 class="mt-1 text-center">Upload Avatar</h3>
+               <form action="{{ url_for('upload_avatar') }}" method="post" enctype="multipart/form-data">
+                    {% with messages = get_flashed_messages(with_categories=True) %}
+                        {% for category, message in messages %}
+                            <div class="alert alert-{{category}} alert-dismissible">
+                                {{ message }}
+                                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                            </div>
+                        {% endfor %}
+                    {% endwith %}
+                   <div class="col-md-10">
+                       <div class="custom-file mt-3">
+                       <input type="file" name='avatar' class="custom-file-input">
+                       <label class="custom-file-label">Choose File</label>
+                       <div class="input-group  mt-3 justify-content-center">
+                        <input type="submit" class="btn btn-primary btn-block" value="Upload">
+                    </div>
+                    </div>
+                   </div>
+               </form>
+            </div>
+        </div>
+    </div>
+{% include 'footer.html' %}

@@ -1,0 +1,60 @@
+{% include 'header.html' %}
+    <div class="container">
+        <div class="row mt-4 justify-content-center">
+            <div class="col-md-12 mt-2 ">
+                <h3 class="mt-1 text-center">Edit User Account</h3>
+               <form action="{{ url_for('admin_edit_user') }}?id={{user.id}}" method="post">
+                   {{form.csrf_token}}
+                   {% for field ,error in form.errors.items() %}
+            
+                   <div class="alert alert-warning alert-dismissible">
+                       {{','.join(error)}}
+                       <button type="button" class="close" data-dismiss="alert">&times;</button>
+                   </div>
+                   {% endfor %}
+                   {% with messages = get_flashed_messages(with_categories=True) %}
+                        {% for category, message in messages %}
+                            <div class="alert alert-{{category}} alert-dismissible">
+                                {{ message }}
+                                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                            </div>
+                        {% endfor %}
+                    {% endwith %}
+                   <div class="col-md-10">
+                       <div class="input-group mt-3">
+                        <span class="input-group-text bg-light mr-2">First Name</span>
+                        {{form.firstname(class="form-control", value=user.firstname) }}
+                    </div>
+                   </div>
+                    
+                   <div class="col-md-10">
+                        <div class="input-group mt-3">
+                        <span class="input-group-text bg-light mr-2">Last Name</span>
+                        {{form.lastname(class="form-control", value=user.lastname) }}
+                        </div>
+                    </div>
+
+                <div class="col-md-10">
+                    <div class="input-group mt-3">
+                     <span class="input-group-text bg-light mr-2">Email</span>
+                     {{form.email(class="form-control", value=user.email) }}
+                 </div>
+                </div>
+
+                <div class="col-md-10">
+                    <div class="input-group mt-3">
+                     <span class="input-group-text bg-light mr-2">Phone</span>
+                     {{form.phone(class="form-control", value=user.phone) }}
+                 </div>
+                </div>
+                <div class='col-md-9'>
+                    <div class="input-group mt-3">
+                            {{form.submit(class='btn btn-primary mt-5 W-100')}}
+                    </div>
+                </div>
+               </form>
+            </div>
+        </div>
+    </div>
+{% include 'footer.html' %}
+

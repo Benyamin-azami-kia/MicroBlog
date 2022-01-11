@@ -1,0 +1,45 @@
+{% include 'header.html' %}
+    <div class="container">
+        <div class="row mt-4 justify-content-center">
+            <div class="col-md-12 mt-2">
+                <div class="col-md-10">
+                    <div class="input-group mt-3">
+                    <span class="input-group-text bg-light  mr-2">First Name</span>
+                    <input type="text" name="" id="" class="form-control border-0 bg-light" aria-label="Username" placeholder="{{current_user.firstname}}" readonly>
+                </div>
+                </div>
+                <div class="col-md-10">
+                    <div class="input-group mt-3">
+                    <span class="input-group-text bg-light mr-2">Last Name</span>
+                    <input type="text" name="" id="" class="form-control border-0 bg-light" aria-label="Username" placeholder="{{current_user.lastname}}" readonly>
+                </div>
+                </div>
+                <div class="col-md-10">
+                    <div class="input-group mt-3">
+                    <span class="input-group-text bg-light mr-2">Email</span>
+                    <input type="text" name="" id="" class="form-control border-0 bg-light" aria-label="Email" placeholder="{{current_user.email}}" readonly>
+                </div>
+                </div>
+                <div class="col-md-10">
+                    <div class="input-group mt-3">
+                    <span class="input-group-text bg-light mr-2">Phone</span>
+                    <input type="text" name="" id="" class="form-control border-0 bg-light" aria-label="Phone" placeholder="{{current_user.phone}}" readonly>
+                </div>
+                </div>
+                <div class="col-md-10">
+                    <div class="input-group mt-3">
+                    <span class="input-group-text bg-light mr-2">Bio</span>
+                    <input type="text" name="" id="" class="form-control border-0 bg-light" aria-label="Phone" placeholder="{{current_user.bio}}" readonly>
+                </div>
+                </div>
+                <div class="col-md-10">
+                    <div class="input-group mt-3">
+                    <span class="input-group-text bg-light mr-2">Created at</span>
+                    <input type="text" name="" id="" class="form-control border-0 bg-light" aria-label="created_at" placeholder="{{current_user.created_at}}" readonly>
+                </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+{% include 'footer.html' %}

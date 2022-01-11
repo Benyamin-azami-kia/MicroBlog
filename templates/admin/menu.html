@@ -1,0 +1,25 @@
+<div class="col-sm-4">
+    <div class="card text-center">
+        <div class="card-header"><b>Admin Dashboard</b></div>
+        <div class="col-sm-12 justify-content-center">
+            <img  src="{{url_for('static', filename=current_user.avatar)}}" alt="AVATAR" width="200" height="170" class="mt-3 rounded-circle" >
+           
+            <p class="card-text mt-2">{{current_user.firstname}}</p>
+            <div style="width: 95%;float:right;"><i style="font-size: 13;">{{current_user.bio}}</i></div>
+        </div>
+        <div class="card-body mb-2">
+            <ul class="list-group">
+             <li class="list-group-item"><a href="{{ url_for('userList') }}" class="link">Users List</a></li>
+                <li class="list-group-item  mt-2"><a href="{{ url_for('admin_create_user') }}" class="link">Add User</a></li>
+                <li class="list-group-item  mt-2"><a href="{{url_for('createPost')}}" class="link">Add Post</a></li>
+                <li class="list-group-item  mt-2"><a href="{{url_for('postList')}}" class="link">Post List</a></li>
+                <li class="list-group-item  mt-2"><a href="{{url_for('commentList')}}" class="link">Comments <b class="text-danger">({{rows}})</b></a></li>
+                <li class="list-group-item  mt-2"><a href="{{ url_for('admin_info') }}" class="link">Account Info</a></li>
+                <li class="list-group-item  mt-2"><a href="{{ url_for('admin_account_edit') }}" class="link">Edit Profile</a></li>
+                <li class="list-group-item  mt-2"><a href="{{ url_for('admin_change_password') }}" class="link">Change Password</a></li>
+                <li class="list-group-item  mt-2"><a href="{{ url_for('admin_upload_avatar') }}" class="link">Upload Avatar</a></li>
+                <li class="list-group-item bg-info mt-2"><a href="{{url_for('signout')}}" class="link">Sign Out</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
